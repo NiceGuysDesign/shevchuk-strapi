@@ -1,0 +1,56 @@
+{
+  "kind": "collectionType",
+  "collectionName": "desktop_items",
+  "info": {
+    "singularName": "desktop-item",
+    "pluralName": "desktop-items",
+    "displayName": "Desktop Item"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "required": true
+    },
+    "type": {
+      "type": "enumeration",
+      "required": true,
+      "default": "folder",
+      "enum": [
+        "folder",
+        "image"
+      ]
+    },
+    "parent": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::desktop-item.desktop-item",
+      "inversedBy": "children"
+    },
+    "children": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::desktop-item.desktop-item",
+      "mappedBy": "parent"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  }
+}
