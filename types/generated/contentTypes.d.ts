@@ -470,8 +470,27 @@ export interface ApiDesktopItemDesktopItem extends Struct.CollectionTypeSchema {
       'manyToOne',
       'api::desktop-item.desktop-item'
     >;
+    position: Schema.Attribute.Enumeration<
+      ['top-left', 'top-right', 'bottom-left', 'bottom-right']
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }> &
+      Schema.Attribute.DefaultTo<'top-left'>;
+    presentationImg: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     publishedAt: Schema.Attribute.DateTime;
-    type: Schema.Attribute.Enumeration<['folder', 'image']> &
+    type: Schema.Attribute.Enumeration<['folder', 'image', 'presentation']> &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<'folder'>;
     updatedAt: Schema.Attribute.DateTime;
