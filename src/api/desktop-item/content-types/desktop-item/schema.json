@@ -84,6 +84,24 @@
         "bottom-left",
         "bottom-right"
       ]
+    },
+    "link": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "type"
+            },
+            "AppLink"
+          ]
+        }
+      }
     }
   }
 }
