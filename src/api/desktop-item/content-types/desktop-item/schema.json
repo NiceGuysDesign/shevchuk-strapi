@@ -31,7 +31,8 @@
       "enum": [
         "folder",
         "image",
-        "presentation"
+        "presentation",
+        "AppLink"
       ]
     },
     "parent": {

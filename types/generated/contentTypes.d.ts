@@ -490,7 +490,9 @@ export interface ApiDesktopItemDesktopItem extends Struct.CollectionTypeSchema {
         };
       }>;
     publishedAt: Schema.Attribute.DateTime;
-    type: Schema.Attribute.Enumeration<['folder', 'image', 'presentation']> &
+    type: Schema.Attribute.Enumeration<
+      ['folder', 'image', 'presentation', 'AppLink']
+    > &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<'folder'>;
     updatedAt: Schema.Attribute.DateTime;
