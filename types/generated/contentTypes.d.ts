@@ -453,7 +453,7 @@ export interface ApiDesktopItemDesktopItem extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    image: Schema.Attribute.Media<'images'>;
+    image: Schema.Attribute.Media<'images', true>;
     link: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -486,10 +486,7 @@ export interface ApiDesktopItemDesktopItem extends Struct.CollectionTypeSchema {
         };
       }> &
       Schema.Attribute.DefaultTo<'top-left'>;
-    presentationImg: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios',
-      true
-    > &
+    presentationImg: Schema.Attribute.Media<'images' | 'files', true> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
