@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_presentation_slides",
+  "info": {
+    "displayName": "Presentation Slide",
+    "icon": "picture",
+    "description": "Один слайд презентації: зображення для desktop та mobile"
+  },
+  "options": {},
+  "attributes": {
+    "desktopImg": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": ["images", "files"]
+    },
+    "mobileImg": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images", "files"]
+    }
+  }
+}

@@ -54,8 +54,10 @@
         "images"
       ]
     },
-    "presentationImg": {
-      "type": "media",
+    "presentationSlides": {
+      "type": "component",
+      "repeatable": true,
+      "component": "presentation.slide",
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -70,12 +72,25 @@
             "presentation"
           ]
         }
+      }
+    },
+    "presentationLink": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
       },
-      "multiple": true,
-      "allowedTypes": [
-        "images",
-        "files"
-      ]
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "type"
+            },
+            "presentation"
+          ]
+        }
+      }
     },
     "position": {
       "type": "enumeration",

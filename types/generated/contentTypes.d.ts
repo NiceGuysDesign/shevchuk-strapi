@@ -486,7 +486,13 @@ export interface ApiDesktopItemDesktopItem extends Struct.CollectionTypeSchema {
         };
       }> &
       Schema.Attribute.DefaultTo<'top-left'>;
-    presentationImg: Schema.Attribute.Media<'images' | 'files', true> &
+    presentationLink: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    presentationSlides: Schema.Attribute.Component<'presentation.slide', true> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -553,6 +559,31 @@ export interface ApiNotificationNotification
       'oneToMany',
       'api::notification.notification'
     >;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiTrackTrack extends Struct.SingleTypeSchema {
+  collectionName: 'traks';
+  info: {
+    displayName: 'MP3Player';
+    pluralName: 'traks';
+    singularName: 'track';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::track.track'> &
+      Schema.Attribute.Private;
+    musicTraks: Schema.Attribute.Media<'files' | 'audios', true>;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -1072,6 +1103,7 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::desktop-item.desktop-item': ApiDesktopItemDesktopItem;
       'api::notification.notification': ApiNotificationNotification;
+      'api::track.track': ApiTrackTrack;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

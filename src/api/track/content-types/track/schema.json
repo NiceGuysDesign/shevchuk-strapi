@@ -1,0 +1,23 @@
+{
+  "kind": "singleType",
+  "collectionName": "traks",
+  "info": {
+    "singularName": "track",
+    "pluralName": "traks",
+    "displayName": "MP3Player"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "musicTraks": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "files",
+        "audios"
+      ]
+    }
+  }
+}
