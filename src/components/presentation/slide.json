@@ -10,14 +10,22 @@
     "desktopImg": {
       "type": "media",
       "multiple": false,
-      "required": true,
-      "allowedTypes": ["images", "files"]
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ]
     },
     "mobileImg": {
       "type": "media",
       "multiple": false,
       "required": false,
-      "allowedTypes": ["images", "files"]
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ]
     }
   }
 }

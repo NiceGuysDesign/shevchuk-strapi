@@ -56,8 +56,6 @@
     },
     "presentationSlides": {
       "type": "component",
-      "repeatable": true,
-      "component": "presentation.slide",
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -72,7 +70,9 @@
             "presentation"
           ]
         }
-      }
+      },
+      "component": "presentation.slide",
+      "repeatable": true
     },
     "presentationLink": {
       "type": "string",
