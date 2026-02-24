@@ -74,24 +74,6 @@
       "component": "presentation.slide",
       "repeatable": true
     },
-    "presentationLink": {
-      "type": "string",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "conditions": {
-        "visible": {
-          "==": [
-            {
-              "var": "type"
-            },
-            "presentation"
-          ]
-        }
-      }
-    },
     "position": {
       "type": "enumeration",
       "pluginOptions": {

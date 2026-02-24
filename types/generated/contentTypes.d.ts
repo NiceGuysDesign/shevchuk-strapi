@@ -486,12 +486,6 @@ export interface ApiDesktopItemDesktopItem extends Struct.CollectionTypeSchema {
         };
       }> &
       Schema.Attribute.DefaultTo<'top-left'>;
-    presentationLink: Schema.Attribute.String &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     presentationSlides: Schema.Attribute.Component<'presentation.slide', true> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {

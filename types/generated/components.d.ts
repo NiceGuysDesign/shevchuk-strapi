@@ -8,6 +8,7 @@ export interface PresentationSlide extends Struct.ComponentSchema {
     icon: 'picture';
   };
   attributes: {
+    code: Schema.Attribute.Blocks;
     desktopImg: Schema.Attribute.Media<'images' | 'files' | 'videos'>;
     mobileImg: Schema.Attribute.Media<'images' | 'files' | 'videos'>;
   };
