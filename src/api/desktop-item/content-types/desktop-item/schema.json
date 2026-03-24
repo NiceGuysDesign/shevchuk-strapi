@@ -32,7 +32,8 @@
         "folder",
         "image",
         "presentation",
-        "AppLink"
+        "AppLink",
+        "case"
       ]
     },
     "parent": {
@@ -53,6 +54,24 @@
       "allowedTypes": [
         "images"
       ]
+    },
+    "caseRichBlock": {
+      "type": "blocks",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "type"
+            },
+            "case"
+          ]
+        }
+      }
     },
     "presentationSlides": {
       "type": "component",
@@ -104,6 +123,42 @@
               "var": "type"
             },
             "AppLink"
+          ]
+        }
+      }
+    },
+    "livePreviewLink": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "type"
+            },
+            "case"
+          ]
+        }
+      }
+    },
+    "behanceLink": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "type"
+            },
+            "case"
           ]
         }
       }

@@ -446,6 +446,18 @@ export interface ApiDesktopItemDesktopItem extends Struct.CollectionTypeSchema {
     };
   };
   attributes: {
+    behanceLink: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    caseRichBlock: Schema.Attribute.Blocks &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     children: Schema.Attribute.Relation<
       'oneToMany',
       'api::desktop-item.desktop-item'
@@ -458,6 +470,12 @@ export interface ApiDesktopItemDesktopItem extends Struct.CollectionTypeSchema {
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
+        };
+      }>;
+    livePreviewLink: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
         };
       }>;
     locale: Schema.Attribute.String;
@@ -494,7 +512,7 @@ export interface ApiDesktopItemDesktopItem extends Struct.CollectionTypeSchema {
       }>;
     publishedAt: Schema.Attribute.DateTime;
     type: Schema.Attribute.Enumeration<
-      ['folder', 'image', 'presentation', 'AppLink']
+      ['folder', 'image', 'presentation', 'AppLink', 'case']
     > &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<'folder'>;
