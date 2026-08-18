@@ -53,7 +53,8 @@
       "multiple": true,
       "allowedTypes": [
         "images"
-      ]
+      ],
+      "description": "For type Case: optional folder cover. If empty, the first screen of Live Preview Link is used."
     },
     "caseRichBlock": {
       "type": "blocks",
@@ -134,6 +135,7 @@
           "localized": false
         }
       },
+      "description": "Website URL rendered in an iframe when the Case is opened. If Image is empty, this site's first screen is used as the folder icon.",
       "conditions": {
         "visible": {
           "==": [
