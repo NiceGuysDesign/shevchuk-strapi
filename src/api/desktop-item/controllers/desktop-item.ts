@@ -5,11 +5,25 @@
 import { factories } from '@strapi/strapi';
 
 function getParams(ctx: { query?: Record<string, unknown> }) {
-  const { locale, status, ...rest } = (ctx.query ?? {}) as Record<string, unknown>;
+  const {
+    locale,
+    status,
+    // Strapi v4 leftover from the Next.js client — ignore, do not pass to Documents API
+    publicationState,
+    ...rest
+  } = (ctx.query ?? {}) as Record<string, unknown>;
+
+  // Map legacy publicationState → Strapi 5 status if status is missing
+  let resolvedStatus = status;
+  if (!resolvedStatus && typeof publicationState === 'string') {
+    if (publicationState === 'preview') resolvedStatus = 'draft';
+    else if (publicationState === 'live') resolvedStatus = 'published';
+  }
+
   return {
     ...rest,
     locale,
-    status: status ?? 'published',
+    status: resolvedStatus ?? 'published',
   };
 }
 
