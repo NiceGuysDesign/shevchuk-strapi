@@ -458,6 +458,13 @@ export interface ApiDesktopItemDesktopItem extends Struct.CollectionTypeSchema {
           localized: true;
         };
       }>;
+    caseViewMode: Schema.Attribute.Enumeration<['iframe', 'richBlock']> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }> &
+      Schema.Attribute.DefaultTo<'iframe'>;
     children: Schema.Attribute.Relation<
       'oneToMany',
       'api::desktop-item.desktop-item'

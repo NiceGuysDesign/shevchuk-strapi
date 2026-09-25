@@ -56,11 +56,17 @@
       ],
       "description": "For type Case: optional folder cover. If empty, the first screen of Live Preview Link is used."
     },
-    "caseRichBlock": {
-      "type": "blocks",
+    "caseViewMode": {
+      "type": "enumeration",
+      "default": "iframe",
+      "enum": [
+        "iframe",
+        "richBlock"
+      ],
+      "description": "What to show in the Case window: Live Preview iframe or Case Rich Block. Live / Behance links stay available for both.",
       "pluginOptions": {
         "i18n": {
-          "localized": true
+          "localized": false
         }
       },
       "conditions": {
@@ -70,6 +76,36 @@
               "var": "type"
             },
             "case"
+          ]
+        }
+      }
+    },
+    "caseRichBlock": {
+      "type": "blocks",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "conditions": {
+        "visible": {
+          "and": [
+            {
+              "==": [
+                {
+                  "var": "type"
+                },
+                "case"
+              ]
+            },
+            {
+              "==": [
+                {
+                  "var": "caseViewMode"
+                },
+                "richBlock"
+              ]
+            }
           ]
         }
       }
@@ -135,7 +171,7 @@
           "localized": false
         }
       },
-      "description": "Website URL rendered in an iframe when the Case is opened. If Image is empty, this site's first screen is used as the folder icon.",
+      "description": "Website URL. Used for the Live website button always, and for the iframe when Case View Mode = iframe. If Image is empty, also used as folder icon screenshot.",
       "conditions": {
         "visible": {
           "==": [
